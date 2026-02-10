@@ -53,3 +53,12 @@ console.log("El precio base del producto es: ", precio);
 console.log("El monto de IVA es: ", montoIVA);
 console.log("El precio final del producto es: ", precioFin);
     
+function esMayorDeEdad(edad){
+    const EDAD_MINIMA=18;
+
+    if(edad>=EDAD_MINIMA){
+        return true;
+    }  else{
+        return false;
+    }   
+}
