@@ -62,3 +62,72 @@ function esMayorDeEdad(edad){
         return false;
     }   
 }
+
+function esMayorDeEdad(edad){
+    return edad >= 18;
+}
+
+function calcularPrecioConIva(precio){
+    const IVA=0.21;
+    return precio +(precio*IVA);
+}
+
+function aplicarDescuento(precio, tieneDescuento){
+    if(tieneDescuento){
+        const DESCUENTO=0.01;
+        return precio -(precio*DESCUENTO);
+    }
+    return precio;
+}
+
+const edadCliente2=22;
+const precioBase2=1000;
+const tieneDescuento2=true;
+
+if(esMayorDeEdad(edadCliente2)){
+    let precioFinal2=calcularPrecioConIva(precioBase2);
+    precioFinal2=aplicarDescuento(precioFinal2, tieneDescuento2);
+    console.log("El precio final del producto es: ", precioFinal2);     
+
+}   else{
+    console.log("El cliente no tiene edad suficiente para comprar el producto");
+}   
+
+function esMayorDeEdad(edad){
+    return edad>=18;
+    
+}
+function calcularIva(precio){
+    const IVA=0.21;
+    return precio*IVA;
+}
+
+function calcularDescuento(precio,tipoCliente){
+    if(tipoCliente==="Premium"){
+        return precio*0.20;
+    }
+    if(tipoCliente==="Regular"){
+        return precio*0.01;
+    }
+    return 0;
+}
+
+function procesarCompra(edad,precioBase,tipoCliente){
+    if(!esMayorDeEdad(edad)){
+        return("Acceso Denegado:Menor de Edad");
+    }
+    const iva=calcularIva(precioBase);
+    let precioFinal=precioBase+iva;
+
+    const descuento=calcularDescuento(precioFinal,tipoCliente);
+    precioFinal= precioFinal-descuento;
+
+    return {
+        precioBase,
+        iva,
+        descuento,
+        precioFinal
+    };
+}
+const resultadoCompra= procesarCompra(22,1000,"Premium");
+console.log("Resultado de la compra: ", resultadoCompra);   
