@@ -131,3 +131,39 @@ function procesarCompra(edad,precioBase,tipoCliente){
 }
 const resultadoCompra= procesarCompra(22,1000,"Premium");
 console.log("Resultado de la compra: ", resultadoCompra);   
+
+
+const cliente={
+    nombre:"Juan",
+    edad:44,
+    tipo:"Premium"
+};
+
+const producto={
+    nombre:"Servicio Digital",
+    precioBase:1000
+};
+
+function procesarCompra(cliente,producto){
+    if(!esMayorDeEdad(cliente.edad)){
+        return "Acceso Denegado: Menor de Edad";
+    }
+    const iva=calcularIva(producto.precioBase);
+    let precioFinal=producto.precioBase+iva;
+
+    const descuento=calcularDescuento(precioFinal,cliente.tipo);
+    precioFinal=precioFinal-descuento;
+
+    return{
+        cliente: cliente.nombre,
+        producto: producto.nombre,
+        precioBase: producto.precioBase,
+        iva,
+        descuento,
+        precioFinal
+    };
+    
+}
+
+const resultado=procesarCompra(cliente,producto);
+console.log("Resultado de la compra: ", resultado);
