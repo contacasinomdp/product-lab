@@ -165,5 +165,26 @@ function procesarCompra(cliente,producto){
     
 }
 
+
+
 const resultado=procesarCompra(cliente,producto);
 console.log("Resultado de la compra: ", resultado);
+
+clientes=[
+    {nombre:"Juan", edad:44, tipo:"Premium"},
+    {nombre:"Maria", edad:30, tipo:"Regular"},
+    {nombre:"Pedro", edad:17, tipo:"Regular"}
+];  
+
+const producto3={
+    nombre:"Producto 3",
+    precioBase:1500
+};
+
+for(let cliente of clientes){
+    const resultado=procesarCompra(cliente,producto3);
+    console.log("Resultado para: ", cliente,producto3);       
+    console.log(resultado);
+    console.log("-------------");
+}
+
